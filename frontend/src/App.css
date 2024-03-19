@@ -14,13 +14,35 @@
   text-align: center;
   width: 100%;
   padding: 20px;
-  background-color: palevioletred;
+  background-color: orangered;
 }
 
+.register {
+  margin-left: 35%;
+}
+
+.inputBox {
+  display: block;
+  font-size: large;
+  margin: 25px;
+  padding: 15px;
+  width: 300px;
+  border: 1px solid orangered;
+}
+
+.appButton {
+  margin: 25px;
+  font-size: large;
+  padding: 15px;
+  width: 150px;
+  background-color: orangered;
+  border: 1px solid;
+  cursor: pointer;
+}
 .nav-ul {
   padding: 10px;
   margin: 0;
-  background-color: palevioletred;
+  background-color: orangered;
 }
 
 @media (prefers-reduced-motion: no-preference) {
