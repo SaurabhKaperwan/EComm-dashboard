@@ -1,11 +1,18 @@
-import React, { useState } from "react";
-import {useNavigate} from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const auth = localStorage.getItem("user");
+    if(auth) {
+      navigate("/");
+    }
+  })
 
   const collectData = async() => {
     //you can also use axios for this
@@ -17,9 +24,7 @@ const SignUp = () => {
       },
     })
     result = await result.json();
-    if(result) {
-      navigate("/");
-    }
+    localStorage.setItem("user", JSON.stringify(result));
   };
 
   return (
