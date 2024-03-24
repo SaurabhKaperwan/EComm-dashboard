@@ -1,76 +1,129 @@
 .nav-ul li {
-  display: inline-block;
-  padding: 10px;
+    display: inline-block;
+    padding: 10px;
 }
 
 .nav-ul li a {
-  color: white;
-  padding: 5px;
-  text-decoration: none;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  text-align: center;
-  width: 100%;
-  padding: 20px;
-  background-color: orangered;
+    color: white;
+    padding: 5px;
+    text-decoration: none;
 }
 
-.register {
-  margin-left: 35%;
+.footer {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    background-color: orangered;
+}
+
+.register,
+.product {
+    margin-left: 35%;
 }
 
 .inputBox {
-  display: block;
-  font-size: large;
-  margin: 25px;
-  padding: 15px;
-  width: 300px;
-  border: 1px solid orangered;
+    display: block;
+    font-size: large;
+    margin: 25px;
+    padding: 15px;
+    width: 300px;
+    border: 1px solid orangered;
 }
 
 .appButton {
-  margin: 25px;
-  font-size: large;
-  padding: 15px;
-  width: 150px;
-  background-color: orangered;
-  border: 1px solid;
-  cursor: pointer;
-}
-.nav-ul {
-  padding: 10px;
-  margin: 0;
-  background-color: orangered;
+    margin: 25px;
+    font-size: large;
+    padding: 15px;
+    width: 150px;
+    background-color: orangered;
+    border: 1px solid;
+    cursor: pointer;
 }
 
+.nav-ul {
+    padding: 10px;
+    margin: 0;
+    background-color: orangered;
+}
+
+.login {
+    margin-left: 30%;
+    margin-top: 10%;
+
+}
+
+.nav-right {
+    text-align: right;
+}
+
+.logo {
+    width: 45px;
+    float: left;
+    height: 59px;
+    margin-left: 10px;
+}
+
+.invalid-input {
+    color: red;
+    margin-top: -20px;
+    display: block;
+    margin-left: 20px;
+}
+
+.product-list {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.product-list ul li {
+    display: inline-block;
+    border: 1px solid orangered;
+    padding: 5px;
+    width: 150px;
+}
+
+.product-list ul {
+  margin: 0;
+}
+
+.search-product-box{
+    width: 300px;
+    margin: 20px;
+    height: 40px;
+    border: 1px solid orangered;
+    padding-left: 20px;
+}
+
+
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }

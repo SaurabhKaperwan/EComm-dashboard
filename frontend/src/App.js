@@ -4,6 +4,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import SignUp from "./components/SignUp";
 import PrivateComponent from "./components/PrivateComponent";
+import LogIn from "./components/LogIn";
+import AddProduct from "./components/AddProduct";
+import ProductList from "./components/ProductList";
+import UpdateProduct from "./components/UpdateProduct";
 
 function App() {
   return (
@@ -12,13 +16,14 @@ function App() {
         <Nav />
         <Routes>
           <Route element={<PrivateComponent />}>
-          <Route path="/" element={<h1>Product Listing</h1>} />
-          <Route path="/add" element={<h1>Add product</h1>} />
-          <Route path="/update" element={<h1>Update</h1>} />
+          <Route path="/" element={<ProductList />} />
+          <Route path="/add" element={<AddProduct />} />
+          <Route path="/update/:id" element={<UpdateProduct />} />
           <Route path="/logout" element={<h1>Logout</h1>} />
           <Route path="/profile" element={<h1>Profile</h1>} />
-          </Route>
+          </Route> { /*Private Component */}
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<LogIn />} />
         </Routes>
       </BrowserRouter>
       <Footer />
