@@ -13,9 +13,15 @@ const ProductList = () => {
 
     const getProducts = async () => {
         try {
-            let result = await fetch('http://localhost:5000/products', {
+            console.log("running");
+            const userId = JSON.parse(localStorage.getItem('user'))._id;
+            const token = JSON.parse(localStorage.getItem('token'));
+            const url = `http://localhost:5000/products?userId=${userId}`;
+            console.log(token);
+
+            let result = await fetch(url, {
                 headers: {
-                    authorization: `bearer ${JSON.parse(localStorage.getItem('token'))}`
+                    authorization: `bearer ${token}`
                 }
             });
 

@@ -2,34 +2,42 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-  const navigate = useNavigate();
+    const [name, setName] = useState("");
+    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const navigate = useNavigate();
 
-  useEffect(() => {
-    const auth = localStorage.getItem("user");
-    if(auth) {
-      navigate("/");
+    useEffect(() => {
+        gotoHome();
+    }, []);
+
+    function gotoHome() {
+        const auth = localStorage.getItem("user");
+        if (auth) {
+            navigate("/");
+        }
     }
-  }, []);
 
-  const collectData = async() => {
-    //you can also use axios for this
-    let result = await fetch("http://localhost:5000/register", {
-      method: "post",
-      body: JSON.stringify({ name, email, password }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-    result = await result.json();
-    localStorage.setItem("user", JSON.stringify(result.result));
-    localStorage.setItem("token", JSON.stringify(result.auth));
-  };
 
-  return (
-    <div className="register">
+    const collectData = async () => {
+        //you can also use axios for this
+        let result = await fetch("http://localhost:5000/register", {
+            method: "post",
+            body: JSON.stringify({ name, email, password }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+        result = await result.json();
+        if (result) {
+            localStorage.setItem("user", JSON.stringify(result.result));
+            localStorage.setItem("token", JSON.stringify(result.auth));
+            gotoHome();
+        }
+    };
+
+    return (
+        <div className="register">
       <h1>SignUp</h1>
       <input
         className="inputBox"
@@ -62,7 +70,7 @@ const SignUp = () => {
         SignUp
       </button>
     </div>
-  );
+    );
 };
 
 export default SignUp;

@@ -2,10 +2,12 @@ const express = require("express");
 const cors = require("cors");
 require('./db/config');
 const app = express();
+const mongoose = require('mongoose');
 const User = require("./db/User");
 const Product = require("./db/Product");
 const Jwt = require('jsonwebtoken');
 const jwtKey = 'e-com';
+
 
 app.use(express.json());
 app.use(cors());
@@ -45,14 +47,22 @@ app.post("/add-product", verifyToken, async (req, res) => {
     res.send(result);
 });
 
+
 app.get("/products", verifyToken, async (req, res) => {
-    let products = await Product.find();
+    const userId = req.query.userId;
+
+    if (!userId) {
+        return res.status(400).json({ message: 'userId is required' });
+    }
+
+    let products = await Product.find({ userId: userId });
     if (products.length > 0) {
         res.send(products);
     } else {
         res.send({ result: "No products found" });
     }
 });
+
 
 
 app.delete("/product/:id", verifyToken, async (req, res) => {
